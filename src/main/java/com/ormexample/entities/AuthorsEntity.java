@@ -8,22 +8,32 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="authors")
-public class AuthorsEntity 
-{
+@Table(name = "authors")
+public class AuthorsEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "author_id")
 	private Integer authorId;
-	
+
 	@Column(name = "author_name")
 	private String authorName;
-	
+
 	@Column(name = "author_email")
 	private String authorEmail;
-	
+
 	@Column(name = "author_phone")
 	private Integer authorPhone;
+
+	@Column(name = "is_deleted")
+	private Boolean isDeleted;
+
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
+
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
 
 	public Integer getAuthorId() {
 		return authorId;
@@ -43,6 +53,12 @@ public class AuthorsEntity
 
 	public String getAuthorEmail() {
 		return authorEmail;
+	}
+
+	@Override
+	public String toString() {
+		return "AuthorsEntity [authorId=" + authorId + ", authorName=" + authorName + ", authorEmail=" + authorEmail
+				+ ", authorPhone=" + authorPhone + ", isDeleted=" + isDeleted + "]";
 	}
 
 	public void setAuthorEmail(String authorEmail) {

@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
-<hibernate-congiguration>
+<hibernate-configuration>
 
 	<session-factory>
 
@@ -19,10 +19,10 @@
 
 		<!-- Specifying Session Context -->
 		<property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
-		
+
 		<mapping class="com.ormexample.entities.AuthorsEntity"></mapping>
 		<mapping class="com.ormexample.entities.BooksEntity"></mapping>
 
 	</session-factory>
 
-</hibernate-congiguration>
+</hibernate-configuration>
