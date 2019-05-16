@@ -22,6 +22,7 @@
 
 		<mapping class="com.ormexample.entities.AuthorsEntity"></mapping>
 		<mapping class="com.ormexample.entities.BooksEntity"></mapping>
+		<mapping class="com.ormexample.entities.AddressEntity"></mapping>
 
 	</session-factory>
 

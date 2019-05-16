@@ -9,15 +9,15 @@ public class OrmExampleMain {
 
 	public static void main(String[] args) {
 
-		AuthorsEntity authorEntiry = new AuthorsEntity();
+		AuthorsEntity authorEntity = new AuthorsEntity();
 
-		authorEntiry.setAuthorName("Test7 Rest7");
-		authorEntiry.setAuthorEmail("test7rest7@gmail.com");
-		authorEntiry.setAuthorPhone(111222333);
-		authorEntiry.setIsDeleted(false);
+		authorEntity.setAuthorName("Test7 Rest7");
+		authorEntity.setAuthorEmail("test7rest7@gmail.com");
+		authorEntity.setAuthorPhone(111222333);
+		authorEntity.setIsDeleted(false);
 
 		AuthorRepository authorRepo = new AuthorRepository();
-		authorRepo.save(authorEntiry);
+		authorRepo.save(authorEntity);
 
 		AuthorsEntity author1 = authorRepo.getById(1);
 		System.out.println(author1.toString());

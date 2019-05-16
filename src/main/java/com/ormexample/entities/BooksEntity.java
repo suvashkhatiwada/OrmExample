@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,13 +22,14 @@ public class BooksEntity {
 	private String bookName;
 	
 	@Column(name = "book_edition")
-	private String bookEdition;
+	private Integer bookEdition;
 	
 	@Column(name = "book_year")
 	private Integer bookYear;
 	
-	@Column(name = "book_author_id")
-	private Integer bookAuthorId;
+	@ManyToOne
+	@JoinColumn(name = "book_author_id", referencedColumnName = "author_id")
+	private AuthorsEntity authorEntity;
 	
 	@Column(name = "book_price")
 	private Integer bookPrice;
@@ -47,11 +50,11 @@ public class BooksEntity {
 		this.bookName = bookName;
 	}
 
-	public String getBookEdition() {
+	public Integer getBookEdition() {
 		return bookEdition;
 	}
 
-	public void setBookEdition(String bookEdition) {
+	public void setBookEdition(Integer bookEdition) {
 		this.bookEdition = bookEdition;
 	}
 
@@ -63,12 +66,12 @@ public class BooksEntity {
 		this.bookYear = bookYear;
 	}
 
-	public Integer getBookAuthorId() {
-		return bookAuthorId;
+	public AuthorsEntity getAuthorEntity() {
+		return authorEntity;
 	}
 
-	public void setBookAuthorId(Integer bookAuthorId) {
-		this.bookAuthorId = bookAuthorId;
+	public void setAuthorEntity(AuthorsEntity authorEntity) {
+		this.authorEntity = authorEntity;
 	}
 
 	public Integer getBookPrice() {
@@ -78,5 +81,12 @@ public class BooksEntity {
 	public void setBookPrice(Integer bookPrice) {
 		this.bookPrice = bookPrice;
 	}
+
+	@Override
+	public String toString() {
+		return "BooksEntity [bookId=" + bookId + ", bookName=" + bookName + ", bookEdition=" + bookEdition
+				+ ", bookYear=" + bookYear + ", authorEntity=" + authorEntity + ", bookPrice=" + bookPrice + "]";
+	}
+	
 
 }
